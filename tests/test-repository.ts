@@ -1,4 +1,4 @@
-import Repository from '../src/repository/repository';
+import { Repository } from '../src';
 
 describe('Repository', () => {
     let repository: Repository<number>;

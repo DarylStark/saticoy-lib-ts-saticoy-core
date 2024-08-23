@@ -1,8 +1,10 @@
-import I18nConroller from '../src/internationalization/i18n-controller';
-import { LocaleData } from '../src/internationalization/localedata';
-import Repository from '../src/repository/repository';
-import I18nRetriever from '../src/internationalization/i18n-retriever';
-import I18nSaver from '../src/internationalization/i18n-saver';
+import {
+    I18nController,
+    LocaleData,
+    Repository,
+    I18nRetriever,
+    I18nSaver
+} from '../src';
 
 class MockRetriever implements I18nRetriever {
     constructor(private _locale?: string) { }
@@ -29,12 +31,12 @@ class MockSaver implements I18nSaver {
 }
 
 describe('I18nController', () => {
-    let i18n_controller: I18nConroller;
+    let i18n_controller: I18nController;
     let i18n_repository: Repository<LocaleData>;
 
     beforeEach(() => {
         i18n_repository = new Repository<LocaleData>();
-        i18n_controller = new I18nConroller(
+        i18n_controller = new I18nController(
             i18n_repository,
             undefined,
             [new MockRetriever(undefined), new MockRetriever('nl-NL')],

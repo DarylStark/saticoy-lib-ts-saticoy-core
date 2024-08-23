@@ -5,7 +5,7 @@ interface ThemeSaver {
     saveTheme(theme?: string): void;
 }
 
-class LocalPreferencesSaver implements ThemeSaver {
+class ThemeLocalPreferencesSaver implements ThemeSaver {
     constructor(private _key_theme: string, private _key_mode: string) { }
 
     private _save(key: string, value?: string) {
@@ -24,4 +24,4 @@ class LocalPreferencesSaver implements ThemeSaver {
 }
 
 export default ThemeSaver;
-export { LocalPreferencesSaver }
+export { ThemeLocalPreferencesSaver }

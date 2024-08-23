@@ -4,7 +4,7 @@ interface I18nRetriever {
     isAutoLocale(): boolean;
 }
 
-class BrowserRetriever implements I18nRetriever {
+class I18nBrowserRetriever implements I18nRetriever {
     // TODO: make a list of allowed locaes in the constructor so the browser locale can be checked against it
     retrieveLocale(): string | undefined {
         const locale = navigator.language;
@@ -16,7 +16,7 @@ class BrowserRetriever implements I18nRetriever {
     }
 }
 
-class LocalPreferencesRetriever implements I18nRetriever {
+class I18nLocalPreferencesRetriever implements I18nRetriever {
     constructor(private _key_locale: string) { }
 
     retrieveLocale(): string | undefined {
@@ -30,4 +30,4 @@ class LocalPreferencesRetriever implements I18nRetriever {
 }
 
 export default I18nRetriever;
-export { BrowserRetriever, LocalPreferencesRetriever }
+export { I18nBrowserRetriever, I18nLocalPreferencesRetriever }

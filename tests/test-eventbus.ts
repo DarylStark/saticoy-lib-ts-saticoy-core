@@ -1,4 +1,4 @@
-import EventBus from '../src/eventbus/eventbus';
+import { EventBus } from '../src';
 
 describe('EventBus', () => {
     let event_bus: EventBus;
