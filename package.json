@@ -24,8 +24,7 @@
   "files": [
     "package.json",
     "README.md",
-    "dist",
-    "src"
+    "dist"
   ],
   "keywords": [],
   "author": "Daryl Stark",
