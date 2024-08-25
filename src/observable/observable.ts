@@ -30,19 +30,4 @@ class Observable<T> {
     }
 }
 
-// TODO: Move this to SaticoyCore
-// class StringObservable extends Observable<string> {
-//     // Specific implementation for string observable. Contains extra methods
-//     // that only apply to strings.
-
-//     constructor(value: string) {
-//         super(value);
-//     }
-
-//     getInputSetter() {
-//         return (event: ChangeEvent<HTMLInputElement>) => this.set(event.target.value);
-//     }
-// }
-
 export default Observable;
-// export { StringObservable }
