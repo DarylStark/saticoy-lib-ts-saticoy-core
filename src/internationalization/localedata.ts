@@ -1,3 +1,3 @@
 export type LocaleData = {
-    identifier: string
-}
+    identifier: string;
+};

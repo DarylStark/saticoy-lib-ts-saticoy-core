@@ -6,11 +6,13 @@ interface ThemeSaver {
 }
 
 class ThemeLocalPreferencesSaver implements ThemeSaver {
-    constructor(private _key_theme: string, private _key_mode: string) { }
+    constructor(
+        private _key_theme: string,
+        private _key_mode: string,
+    ) {}
 
     private _save(key: string, value?: string) {
-        if (value === undefined)
-            return localStorage.removeItem(key);
+        if (value === undefined) return localStorage.removeItem(key);
         localStorage.setItem(key, value);
     }
 
@@ -24,4 +26,4 @@ class ThemeLocalPreferencesSaver implements ThemeSaver {
 }
 
 export default ThemeSaver;
-export { ThemeLocalPreferencesSaver }
+export { ThemeLocalPreferencesSaver };

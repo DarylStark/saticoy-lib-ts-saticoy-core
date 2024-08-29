@@ -3,11 +3,11 @@ import {
     LocaleData,
     Repository,
     I18nRetriever,
-    I18nSaver
+    I18nSaver,
 } from '../src';
 
 class MockRetriever implements I18nRetriever {
-    constructor(private _locale?: string) { }
+    constructor(private _locale?: string) {}
 
     retrieveLocale(): string | undefined {
         return this._locale;
@@ -40,7 +40,7 @@ describe('I18nController', () => {
             i18n_repository,
             undefined,
             [new MockRetriever(undefined), new MockRetriever('nl-NL')],
-            new MockSaver()
+            new MockSaver(),
         );
     });
 

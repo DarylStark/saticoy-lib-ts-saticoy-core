@@ -3,7 +3,7 @@ interface I18nSaver {
 }
 
 class I18nLocalPreferencesSaver implements I18nSaver {
-    constructor(private _locale_theme: string) { }
+    constructor(private _locale_theme: string) {}
 
     saveLocale(locale?: string) {
         if (locale === undefined)
@@ -13,4 +13,4 @@ class I18nLocalPreferencesSaver implements I18nSaver {
 }
 
 export default I18nSaver;
-export { I18nLocalPreferencesSaver }
+export { I18nLocalPreferencesSaver };

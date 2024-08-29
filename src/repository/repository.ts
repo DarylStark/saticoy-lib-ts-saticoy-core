@@ -5,7 +5,7 @@ class Repository<T> {
     add(item: T, name: string, aliasses?: string[]): void {
         this._items[name] = item;
         if (aliasses)
-            aliasses.forEach(alias => this._aliasses[alias] = name);
+            aliasses.forEach((alias) => (this._aliasses[alias] = name));
     }
 
     remove(name: string): void {
@@ -14,8 +14,7 @@ class Repository<T> {
 
         // Delete aliasses
         Object.keys(this._aliasses).forEach((value, key) => {
-            if (value === name)
-                delete this._aliasses[key];
+            if (value === name) delete this._aliasses[key];
         });
     }
 
@@ -36,7 +35,7 @@ class Repository<T> {
     getNames(include_aliases?: boolean): string[] {
         const keys = Object.keys(this._items);
         if (include_aliases)
-            Object.keys(this._aliasses).forEach(alias => keys.push(alias));
+            Object.keys(this._aliasses).forEach((alias) => keys.push(alias));
         return keys;
     }
 

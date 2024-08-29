@@ -1,4 +1,3 @@
-
 interface I18nRetriever {
     retrieveLocale(): string | undefined;
     isAutoLocale(): boolean;
@@ -17,7 +16,7 @@ class I18nBrowserRetriever implements I18nRetriever {
 }
 
 class I18nLocalPreferencesRetriever implements I18nRetriever {
-    constructor(private _key_locale: string) { }
+    constructor(private _key_locale: string) {}
 
     retrieveLocale(): string | undefined {
         const locale = localStorage.getItem(this._key_locale) || undefined;
@@ -30,4 +29,4 @@ class I18nLocalPreferencesRetriever implements I18nRetriever {
 }
 
 export default I18nRetriever;
-export { I18nBrowserRetriever, I18nLocalPreferencesRetriever }
+export { I18nBrowserRetriever, I18nLocalPreferencesRetriever };
