@@ -5,8 +5,7 @@ export type EventHandlerCallback = (data: any, event: string) => void;
 type Subscriptions = { [key: string]: EventHandlerCallback[] };
 
 class EventBus {
-    constructor(public subscriptions: Subscriptions = {}) {
-    }
+    constructor(public subscriptions: Subscriptions = {}) {}
 
     on(event: string, callback: EventHandlerCallback) {
         this.subscriptions[event] = this.subscriptions[event] || [];
@@ -16,7 +15,9 @@ class EventBus {
 
     off(event: string, callback: EventHandlerCallback) {
         if (this.subscriptions[event]) {
-            this.subscriptions[event] = this.subscriptions[event].filter(sub => sub !== callback);
+            this.subscriptions[event] = this.subscriptions[event].filter(
+                (sub) => sub !== callback,
+            );
         }
     }
 

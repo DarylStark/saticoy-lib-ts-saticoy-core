@@ -1,7 +1,17 @@
-import { Repository, Theme, Style, ThemeMode, ThemeController, ThemeRetriever } from '../src';
+import {
+    Repository,
+    Theme,
+    Style,
+    ThemeMode,
+    ThemeController,
+    ThemeRetriever,
+} from '../src';
 
 class MockRetriever implements ThemeRetriever {
-    constructor(private _mode?: ThemeMode, private _theme?: string) { }
+    constructor(
+        private _mode?: ThemeMode,
+        private _theme?: string,
+    ) {}
 
     retrieveMode(): ThemeMode | undefined {
         return this._mode;
@@ -25,35 +35,35 @@ const MockThemeDarkLight: Theme = {
     author: 'mock author',
     light: {
         page: {
-            'class': 'mock-light'
-        }
+            class: 'mock-light',
+        },
     },
     dark: {
         page: {
-            'class': 'mock-dark'
-        }
-    }
-}
+            class: 'mock-dark',
+        },
+    },
+};
 
 const MockThemeDark: Theme = {
     name: 'mock theme - dark',
     author: 'mock author',
     dark: {
         page: {
-            'class': 'mock-dark'
-        }
-    }
-}
+            class: 'mock-dark',
+        },
+    },
+};
 
 const MockThemeLight: Theme = {
     name: 'mock theme - light',
     author: 'mock author',
     light: {
         page: {
-            'class': 'mock-light'
-        }
-    }
-}
+            class: 'mock-light',
+        },
+    },
+};
 
 describe('Mode control', () => {
     const repository = new Repository<Theme<Style>>();
@@ -81,7 +91,7 @@ describe('Mode control', () => {
     it('Mulitple working retrievers set, no mode set manually, get value from first retriever', () => {
         controller.retrievers = [
             new MockRetriever(ThemeMode.Light),
-            new MockRetriever(ThemeMode.Dark)
+            new MockRetriever(ThemeMode.Dark),
         ];
         expect(controller.selectedMode).toBe(ThemeMode.Light);
     });
@@ -89,7 +99,7 @@ describe('Mode control', () => {
     it('Mulitple retrievers set with only one working, no mode set manually, get value from second retriever', () => {
         controller.retrievers = [
             new MockRetriever(undefined),
-            new MockRetriever(ThemeMode.Dark)
+            new MockRetriever(ThemeMode.Dark),
         ];
         expect(controller.selectedMode).toBe(ThemeMode.Dark);
     });
@@ -139,7 +149,7 @@ describe('Theme control', () => {
     it('Mulitple working retrievers set, no theme set manually, get value from first retriever', () => {
         controller.retrievers = [
             new MockRetriever(undefined, 'Testtheme'),
-            new MockRetriever(undefined, 'Testtheme2')
+            new MockRetriever(undefined, 'Testtheme2'),
         ];
         expect(controller.selectedTheme).toBe('Testtheme');
     });
@@ -147,7 +157,7 @@ describe('Theme control', () => {
     it('Mulitple retrievers set with only one working, no theme set manually, get value from second retriever', () => {
         controller.retrievers = [
             new MockRetriever(undefined, undefined),
-            new MockRetriever(undefined, 'Testtheme2')
+            new MockRetriever(undefined, 'Testtheme2'),
         ];
         expect(controller.selectedTheme).toBe('Testtheme2');
     });

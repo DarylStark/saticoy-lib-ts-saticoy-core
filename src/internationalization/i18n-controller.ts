@@ -4,7 +4,6 @@ import I18nRetriever from './i18n-retriever';
 import I18nSaver from './i18n-saver';
 import { LocaleData } from './localedata';
 
-
 class I18nController<T extends LocaleData = LocaleData> {
     private _selectedLocale?: string = undefined;
     public defaultLocale?: string;
@@ -14,12 +13,11 @@ class I18nController<T extends LocaleData = LocaleData> {
         public readonly localeRepository: Repository<T>,
         public eventBus?: EventBus,
         public retrievers?: I18nRetriever[],
-        public saver?: I18nSaver) { }
-
+        public saver?: I18nSaver,
+    ) {}
 
     retrieveLocaleAutomatically(): string | undefined {
-        if (this.retrievers === undefined)
-            return undefined;
+        if (this.retrievers === undefined) return undefined;
 
         for (const retriever of this.retrievers) {
             const theme = retriever.retrieveLocale();
@@ -39,7 +37,11 @@ class I18nController<T extends LocaleData = LocaleData> {
     }
 
     get selectedLocale(): string | undefined {
-        return this._selectedLocale || this.retrieveLocaleAutomatically() || this.defaultLocale;
+        return (
+            this._selectedLocale ||
+            this.retrieveLocaleAutomatically() ||
+            this.defaultLocale
+        );
     }
 
     set isAutoLocale(value: boolean) {

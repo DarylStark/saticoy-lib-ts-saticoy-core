@@ -9,7 +9,9 @@ interface ThemeRetriever {
 
 class ThemeBrowserRetriever implements ThemeRetriever {
     retrieveMode(): ThemeMode | undefined {
-        const mode = window.matchMedia('(prefers-color-scheme: dark)').matches ? ThemeMode.Dark : ThemeMode.Light;
+        const mode = window.matchMedia('(prefers-color-scheme: dark)').matches
+            ? ThemeMode.Dark
+            : ThemeMode.Light;
         return mode;
     }
 
@@ -27,7 +29,10 @@ class ThemeBrowserRetriever implements ThemeRetriever {
 }
 
 class ThemeLocalPreferencesRetriever implements ThemeRetriever {
-    constructor(private _key_theme: string, private _key_mode: string) { }
+    constructor(
+        private _key_theme: string,
+        private _key_mode: string,
+    ) {}
 
     retrieveMode(): ThemeMode | undefined {
         const mode = localStorage.getItem(this._key_mode);
