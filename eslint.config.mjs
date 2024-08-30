@@ -1,14 +1,14 @@
-const { ESLint } = require('eslint');
-const parser = require('@typescript-eslint/parser');
-const eslintPlugin = require('@typescript-eslint/eslint-plugin');
+import parser from '@typescript-eslint/parser';
+import eslintPlugin from '@typescript-eslint/eslint-plugin';
 
-module.exports = [
+export default [
     {
-        ignores: ['dist', '.eslintrc.cjs'],
+        ignores: ['dist/', '.eslint.config.mjs'],
+        files: ['src/**/*.ts'],
         languageOptions: {
             parser,
             ecmaVersion: 2020,
-            sourceType: 'module',
+            sourceType: 'commonjs',
         },
         plugins: {
             '@typescript-eslint': eslintPlugin,
