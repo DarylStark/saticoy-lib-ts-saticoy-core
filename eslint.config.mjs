@@ -24,7 +24,7 @@ export default [
             'prefer-const': 'error',
             'no-multiple-empty-lines': ['error', { max: 1 }],
             'comma-dangle': ['error', 'always-multiline'],
-            curly: ['error', 'multi-line'],
+            curly: ['error', 'multi'],
         },
     },
 ];
